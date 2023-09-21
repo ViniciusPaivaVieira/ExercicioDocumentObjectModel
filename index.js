@@ -2,7 +2,8 @@
  * Aplica a cor #BECCC3 no background do body da página
  */
 function background(){
-
+    const body = document.querySelector('body');
+    body.style.backgroundColor = '#BECCC3';
     /**
      * Tarefa/Issue  1
      *
@@ -18,7 +19,9 @@ function background(){
  * na div id='result'
  */
 function show(){
-
+    let fnameValue = document.querySelector('#fname').value;
+    let lnameValue = document.querySelector('#lname').value;
+    document.querySelector('#result').innerHTML = fnameValue + ' ' + lnameValue;
      /**
       * Issue  2
       *
@@ -34,7 +37,18 @@ function show(){
 function search(){
 
     var data = [{name: "Rodrigo"}, {name: "Ricardo"}, {name: "Fabio"}, {name: "Alex"}, {name: "Sílvia"}];
-
+    let results = ''
+    data.map((item) => {
+        if(item.name.toLowerCase().includes(document.querySelector('#name').value.toLowerCase())){
+          results = results + item.name + '<br>'  
+         }
+        })
+        if(document.querySelector('#name').value == ''){   //Caso queira que o campo fique vazio quando não houver nada digitado
+            results = ''
+        }
+        document.querySelector('#search').innerHTML = results;
+        
+        
     /**
      * Issue 3
      *
