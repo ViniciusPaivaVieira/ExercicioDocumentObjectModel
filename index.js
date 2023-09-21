@@ -40,7 +40,7 @@ function search(){
     let results = ''
     data.map((item) => {
         if(item.name.toLowerCase().includes(document.querySelector('#name').value.toLowerCase())){
-          results = results + item.name + '<br>'  
+          results = results + '<div>' + item.name + '</div>'  
          }
         })
         if(document.querySelector('#name').value == ''){   //Caso queira que o campo fique vazio quando não houver nada digitado
